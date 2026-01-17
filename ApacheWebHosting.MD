@@ -23,7 +23,7 @@ git --version
 ```
 ###
 ### Web site details
--   **Domain**: `www.deploymation.com`
+-   **Domain**: `www.devopsrelay.com`
     
 -   **Site folder**: `/var/www/html/deploymation`
     
@@ -79,8 +79,8 @@ sudo nano /etc/apache2/sites-available/deploymation.conf
 Paste the following (adjust if needed):
 ```bash
 <VirtualHost *:80>
-    ServerName deploymation.com
-    ServerAlias www.deploymation.com
+    ServerName devopsrelay.com
+    ServerAlias www.devopsrelay.com
 
     DocumentRoot /var/www/html/deploymation
 
