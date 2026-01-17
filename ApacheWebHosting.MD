@@ -71,3 +71,55 @@ On Ubuntu:
     
 -   Often **Nginx** also runs as `www-data`
 
+## Tell Apache about how to host this website
+### Create Apache VirtualHost configuration
+```bash
+sudo nano /etc/apache2/sites-available/deploymation.conf
+```
+Paste the following (adjust if needed):
+```bash
+<VirtualHost *:80>
+    ServerName deploymation.com
+    ServerAlias www.deploymation.com
+
+    DocumentRoot /var/www/html/deploymation
+
+    <Directory /var/www/html/deploymation>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/deploymation_error.log
+    CustomLog ${APACHE_LOG_DIR}/deploymation_access.log combined
+</VirtualHost>
+```
+Save and exit. Control+o, Control+x in nano editor
+### Enable the site & required modules
+```bash
+sudo a2enmod rewrite
+sudo a2ensite deploymation.conf
+```
+
+### Disable Default site that comes installed with Apache
+```bash
+sudo a2dissite 000-default.conf
+```
+
+### reload Apache for the changes to take effect
+```bash
+sudo systemctl reload apache2
+```
+### Validate Apache configuration
+```bash
+sudo apachectl configtest
+```
+### Test the website
+http://www.deployment.com
+http://deployment.com
+
+### Enable HTTPS
+```bash
+sudo certbot --apache
+```
+Follow the onscreen instructions and complete HTTPS deployment
