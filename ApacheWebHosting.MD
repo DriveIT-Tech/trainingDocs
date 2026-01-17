@@ -116,6 +116,7 @@ sudo apachectl configtest
 ```
 ### Test the website
 http://www.deployment.com
+
 http://deployment.com
 
 ### Enable HTTPS
