@@ -115,9 +115,9 @@ sudo systemctl reload apache2
 sudo apachectl configtest
 ```
 ### Test the website
-http://www.deployment.com
+http://www.devopsrelay.com
 
-http://deployment.com
+http://devopsrelay.com
 
 ### Enable HTTPS
 ```bash
