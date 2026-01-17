@@ -25,7 +25,7 @@ git --version
 ### Web site details
 -   **Domain**: `www.devopsrelay.com`
     
--   **Site folder**: `/var/www/html/deploymation`
+-   **Site folder**: `/var/www/html/devopsrelay`
     
 -   **Apache VirtualHost config** in `/etc/apache2/sites-available`
     
@@ -36,7 +36,7 @@ git --version
 
 ### Create a directory to host your website code
 ``` bash
-sudo mkdir -p /var/www/html/deploymation
+sudo mkdir -p /var/www/html/devopsrelay
  ```
 ### Clone the Git repository into your current Linux directory
 ``` bash
@@ -45,11 +45,11 @@ git clone https://github.com/DriveIT-Tech/corp-website.git
 
 ### Copy the contents to Website directory
 ``` bash
-sudo cp -r corp-website/* /var/www/html/deploymation
+sudo cp -r corp-website/* /var/www/html/devopsrelay
 ```
 vs
 ``` bash
-sudo cp -r corp-website/. /var/www/html/deploymation
+sudo cp -r corp-website/. /var/www/html/devopsrelay
 ```
 #### Which one to use * or .
 #### Asterisk copies:
@@ -61,8 +61,8 @@ It is better to use .
 
 ### Set correct ownership & permissions (CRITICAL)
 ```bash
-sudo chown -R www-data:www-data /var/www/html/deploymation
-sudo chmod -R 755 /var/www/html/deploymation
+sudo chown -R www-data:www-data /var/www/html/devopsrelay
+sudo chmod -R 755 /var/www/html/devopsrelay
 ```
 
 On Ubuntu:
@@ -74,7 +74,7 @@ On Ubuntu:
 ## Tell Apache about how to host this website
 ### Create Apache VirtualHost configuration
 ```bash
-sudo nano /etc/apache2/sites-available/deploymation.conf
+sudo nano /etc/apache2/sites-available/devopsrelay.conf
 ```
 Paste the following (adjust if needed):
 ```bash
@@ -82,23 +82,23 @@ Paste the following (adjust if needed):
     ServerName devopsrelay.com
     ServerAlias www.devopsrelay.com
 
-    DocumentRoot /var/www/html/deploymation
+    DocumentRoot /var/www/html/devopsrelay
 
-    <Directory /var/www/html/deploymation>
+    <Directory /var/www/html/devopsrelay>
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
     </Directory>
 
-    ErrorLog ${APACHE_LOG_DIR}/deploymation_error.log
-    CustomLog ${APACHE_LOG_DIR}/deploymation_access.log combined
+    ErrorLog ${APACHE_LOG_DIR}/devopsrelay_error.log
+    CustomLog ${APACHE_LOG_DIR}/devopsrelay_access.log combined
 </VirtualHost>
 ```
 Save and exit. Control+o, Control+x in nano editor
 ### Enable the site & required modules
 ```bash
 sudo a2enmod rewrite
-sudo a2ensite deploymation.conf
+sudo a2ensite devopsrelay.conf
 ```
 
 ### Disable Default site that comes installed with Apache
