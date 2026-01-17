@@ -45,11 +45,11 @@ git clone https://github.com/DriveIT-Tech/corp-website.git
 
 ### Copy the contents to Website directory
 ``` bash
-sudo cp -r /corp-website/* /var/www/html/deploymation
+sudo cp -r corp-website/* /var/www/html/deploymation
 ```
 vs
 ``` bash
-sudo cp -r /corp-website/. /var/www/html/deploymation
+sudo cp -r corp-website/. /var/www/html/deploymation
 ```
 #### Which one to use * or .
 #### Asterisk copies:
