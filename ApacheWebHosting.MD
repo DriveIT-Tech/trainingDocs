@@ -124,3 +124,6 @@ http://deployment.com
 sudo certbot --apache
 ```
 Follow the onscreen instructions and complete HTTPS deployment
+
+## Enable port 80/443 or HTTP/HTTPS Traffic to your EC2 Instance
+<img src="/images/aws-http-https-rules.png" width="50%">
